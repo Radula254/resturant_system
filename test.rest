@@ -1,0 +1,195 @@
+###SignUp
+POST http://localhost:3000/user/signup
+Content-Type: application/json
+
+{
+    "name": "Jayden Test",
+    "contactNumber": "254712345678",
+    "email": "jaydentest@gmail.com",
+    "password":"jayden123"
+}
+
+###Login with use of tokens for admin
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "admin@gmail.com",
+    "password":"admin123"
+}
+
+###Login with use of tokens for user
+POST http://localhost:3000/user/login
+Content-Type: application/json
+
+{
+    "email": "jaydentest@gmail.com",
+    "password":"jayden123"
+}
+
+###Forgot password reset
+POST http://localhost:3000/user/forgotpassword
+Content-Type: application/json
+
+{
+    "email": "jaydentest@mailinator.com",
+    
+}
+
+###Get all users
+GET http://localhost:3000/user/get
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImpheWRlbnRlc3RAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3MDU5MTg5NjAsImV4cCI6MTcwNTk0NDE2MH0.97ZI6CfuKefpoGgJXQXS-YIpHJ0Qh90ZxMjNoRDshFs
+
+{
+    "email": "jaydentest@gmail.com",
+    "password":"jayden123"
+}
+
+
+###Update a user's status to true by admin
+PATCH http://localhost:3000/user/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkxNzA5OCwiZXhwIjoxNzA1OTQyMjk4fQ.n5kNtQGLy5icuGgo5-affv-qTaFuAy-5PiVXhqa7wKc
+
+{
+    "id": 3,
+    "status": "true"
+}
+
+###Change to new password using the old password
+POST http://localhost:3000/user/changePassword
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+{
+    "oldPassword": "admin",
+    "newPassword": "admin123"
+}
+
+###Check Token
+GET http://localhost:3000/user/checkToken
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+
+###Add a new category
+POST http://localhost:3000/category/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+{
+    "name": "Tea"
+}
+
+###Get the categories
+GET http://localhost:3000/category/get
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+
+###Update a category
+PATCH http://localhost:3000/category/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+{
+    "id": 1,
+    "name": "Coffee"
+}
+
+###Add a new product
+POST http://localhost:3000/product/add
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+{
+    "name": "Dormans",
+    "categoryId": 1,
+    "description": "High Caffeine content",
+    "price": 100
+}
+
+###Get all products
+GET http://localhost:3000/product/get
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+
+###Get products by categoryId
+GET http://localhost:3000/product/getByCategoryId/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+###Get products by productId
+GET http://localhost:3000/product/getById/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+###Update products by productId
+PATCH http://localhost:3000/product/update
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Test",
+    "categoryId": 1,
+    "description": "Medium Caffeine content",
+    "price": 70
+}
+
+###Delete products by productId
+DELETE http://localhost:3000/product/delete/25
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+
+
+###Update products status by ID
+PATCH http://localhost:3000/product/updateStatus
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTkyMDQzNiwiZXhwIjoxNzA1OTQ1NjM2fQ.829qZUJaOw2aQz6Se2qdLg3GqLSFYW3pHqMzM4Xutok
+Content-Type: application/json
+
+{
+    "id": 4,
+    "status": "true"
+}
+
+###Generate bill report
+POST http://localhost:3000/bill/generateReport
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTk2MDY2NCwiZXhwIjoxNzA1OTg1ODY0fQ.T-k-kzQ9YLRjYCNPMLF3sa7fMsQHM1GPjtsJDvyRj6o
+Content-Type: application/json
+
+{
+    "name": "Daniel Brian",
+    "email": "daniel@gmail.com",
+    "contactNumber": "254712345678",
+    "paymentMethod": "Cash",
+    "totalAmount": "1000",
+    "productDetails": "[{\"id\":1, \"name\": \"White Coffee\", \"price\": 1000, \"total\": 1000, \"category\": \"Coffee\", \"quantity\": \"5\"}]"
+}
+
+###Getting the pdf
+POST http://localhost:3000/bill/getPdf
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTk2MDY2NCwiZXhwIjoxNzA1OTg1ODY0fQ.T-k-kzQ9YLRjYCNPMLF3sa7fMsQHM1GPjtsJDvyRj6o
+Content-Type: application/json
+
+{
+    "uuid": "5cf36030-b975-11ee-8831-7d12b3196c4e",
+    "name": "Daniel Brian",
+    "email": "daniel@gmail.com",
+    "contactNumber": "254712345678",
+    "paymentMethod": "Cash",
+    "totalAmount": "750",
+    "productDetails": "[{\"id\":1, \"name\": \"Black Coffee\", \"price\": 99, \"total\": 99, \"category\": \"Coffee\", \"quantity\": \"1\"}]"
+}
+
+###Get All Bills
+GET http://localhost:3000/bill/getBills
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTk2MDY2NCwiZXhwIjoxNzA1OTg1ODY0fQ.T-k-kzQ9YLRjYCNPMLF3sa7fMsQHM1GPjtsJDvyRj6o
+
+###Delete bills by id
+DELETE http://localhost:3000/bill/delete/5
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTk2MDY2NCwiZXhwIjoxNzA1OTg1ODY0fQ.T-k-kzQ9YLRjYCNPMLF3sa7fMsQHM1GPjtsJDvyRj6o
+
+
+###Getting details for the dashboard
+GET http://localhost:3000/dashboard/details
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcwNTk2MDY2NCwiZXhwIjoxNzA1OTg1ODY0fQ.T-k-kzQ9YLRjYCNPMLF3sa7fMsQHM1GPjtsJDvyRj6o
+
